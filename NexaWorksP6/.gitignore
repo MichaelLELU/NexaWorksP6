@@ -1,0 +1,60 @@
+# --- Fichiers de build .NET ---
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+
+# --- Visual Studio / VS Code ---
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- Paquets NuGet (on garde seulement le csproj) ---
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# --- Configuration locale ---
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json.user
+
+# --- Fichiers temporaires ---
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
+
+# --- Tests / couverture ---
+TestResults/
+*.coverage
+*.coveragexml
+*.trx
+nunit-*.xml
+
+# --- Migrations (optionnel : à garder si tu veux partager la structure BDD) ---
+# Si tu veux ignorer toutes les migrations EF :
+# Migrations/
+
+# --- Dump ou sauvegardes BDD ---
+*.mdf
+*.ldf
+*.bak
+*.db
+*.sql
+*.sqlite
+
+# --- Autres ---
+_ReSharper*/
+*.resharper
+*.DotSettings
