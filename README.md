@@ -16,8 +16,6 @@ Projet d’exemple pour **NexaWorks** : modélisation, création et alimentation
 - [Entités & design](#entités--design)
 - [Requêtes demandées (20 cas)](#requêtes-demandées-20-cas)
 - [Dump / Sauvegarde de la BDD](#dump--sauvegarde-de-la-bdd)
-- [Dépannage rapide](#dépannage-rapide)
-- [Licence](#licence)
 
 ## Aperçu
 - **Objectif :** disposer d’une base **SQL Server** avec **25 tickets réalistes**, couvrant plusieurs **produits**, **versions** et **OS**, et un set de **requêtes LINQ** pour l’équipe API.
@@ -45,6 +43,8 @@ Projet d’exemple pour **NexaWorks** : modélisation, création et alimentation
 > Ajoute l’image de ton modèle ici (ex. `docs/erd-nexaworks.png`) :
 
 ![Modèle entité-association](docs/erd-nexaworks.png)
+<img width="1172" height="519" alt="image" src="https://github.com/user-attachments/assets/3e2a8304-2565-4e45-b5ca-2d953a543154" />
+
 
 **Idée clé :** un **Ticket** référence une **combinaison valide** *(Produit, Version, OS)* via la table d’association **`ProductVersionOs`** (clé composite). Le **Statut** est en 1-N.
 
@@ -160,28 +160,3 @@ Créer une **sauvegarde complète** via **SSMS** :
 
 Restaurer : **Databases** → **Restore Database…** → sélectionner le `.bak`.
 
-## Dépannage rapide
-- **`appsettings.json` introuvable** : assure-toi qu’il est **copié** vers `bin/...` (cf. `.csproj`) et/ou utilise `SetBasePath(AppContext.BaseDirectory)` dans `Program.cs`.
-- **Conflit `OperatingSystem`** : utiliser **`OperatingSystemEntity`** (évite `System.OperatingSystem`).
-- **Migrations : “Unable to create a 'DbContext' at design-time”** : ajouter une **`DesignTimeDbContextFactory`** qui construit le contexte avec la chaîne `NexaWorks`.
-- **LINQPad “Instance failure”** : créer la connexion via **EF Core / Project** (ou DLL), cocher **Use IDesignTimeDbContextFactory**.
-
-## Licence
-Indique ici la licence de ton choix (MIT, Apache-2.0, …).
-
----
-
-### Annexe : `.gitignore` (extrait)
-```
-bin/
-obj/
-.vs/
-.vscode/
-appsettings.Development.json
-appsettings.Local.json
-TestResults/
-*.bak
-*.mdf
-*.ldf
-*.db
-```
