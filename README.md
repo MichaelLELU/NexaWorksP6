@@ -40,7 +40,6 @@ Projet d’exemple pour **NexaWorks** : modélisation, création et alimentation
 - `Microsoft.Extensions.Configuration.Json` (lecture d’`appsettings.json`)
 
 ## Modèle de données (ERD)
-> Ajoute l’image de ton modèle ici (ex. `docs/erd-nexaworks.png`) :
 
 <img width="1172" height="519" alt="image" src="https://github.com/user-attachments/assets/3e2a8304-2565-4e45-b5ca-2d953a543154" />
 
@@ -92,15 +91,6 @@ NexaWorksP6/
 ```
 > Adapte le serveur si besoin : `(localdb)\\MSSQLLocalDB`, `localhost`, etc.
 
-#### 2) Copier `appsettings.json` vers le dossier de build
-Dans **`NexaWorksP6.csproj`** :
-```xml
-<ItemGroup>
-  <Content Update="appsettings.json">
-    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-  </Content>
-</ItemGroup>
-```
 
 ### Créer la base et insérer les données (migrations + seed)
 ```bash
@@ -149,7 +139,6 @@ Elles couvrent :
 - **Problèmes “Résolus”** : mêmes déclinaisons, filtrage temporel sur `ResolvedAt`.
 - Sélection retournée : `Id, Produit, Version, OS, Statut, CreatedAt, ResolvedAt, Problem, Resolution`.
 
-> Pour l’exploration libre, voir `Linq/NexaWorks_Demo.linq` (compteurs par produit/OS, derniers tickets, compatibilités, SQL généré avec `ToQueryString()`).
 
 ## Dump / Sauvegarde de la BDD
 Créer une **sauvegarde complète** via **SSMS** :
