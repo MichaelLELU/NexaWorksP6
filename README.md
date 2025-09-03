@@ -42,7 +42,6 @@ Projet d’exemple pour **NexaWorks** : modélisation, création et alimentation
 ## Modèle de données (ERD)
 > Ajoute l’image de ton modèle ici (ex. `docs/erd-nexaworks.png`) :
 
-![Modèle entité-association](docs/erd-nexaworks.png)
 <img width="1172" height="519" alt="image" src="https://github.com/user-attachments/assets/3e2a8304-2565-4e45-b5ca-2d953a543154" />
 
 
