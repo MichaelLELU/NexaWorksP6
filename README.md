@@ -41,10 +41,9 @@ Projet d’exemple pour **NexaWorks** : modélisation, création et alimentation
 
 ## Modèle de données (ERD)
 
-<img width="1172" height="519" alt="image" src="https://github.com/user-attachments/assets/3e2a8304-2565-4e45-b5ca-2d953a543154" />
+<img width="698" height="414" alt="image" src="https://github.com/user-attachments/assets/5dfe1410-49e8-45d9-b54e-65b3b91b52ff" />
 
-
-**Idée clé :** un **Ticket** référence une **combinaison valide** *(Produit, Version, OS)* via la table d’association **`ProductVersionOs`** (clé composite). Le **Statut** est en 1-N.
+schemat faits sur https://www.drawio.com/
 
 ## Structure du projet
 ```
