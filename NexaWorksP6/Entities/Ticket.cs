@@ -23,11 +23,8 @@ namespace NexaWorksP6.Entities
         public string Problem { get; set; } = null!;
         public string? Resolution { get; set; }
 
-        public Product Product { get; set; } = null!;
-        public VersionEntity Version { get; set; } = null!;
-        public OperatingSystemEntity OperatingSystem { get; set; } = null!;
-        public Status Status { get; set; } = null!;
         public ProductVersionOs Pvo { get; set; } = null!;
+        public Status Status { get; set; } = null!;
     }
 
 }

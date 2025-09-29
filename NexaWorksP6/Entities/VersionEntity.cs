@@ -12,8 +12,10 @@ namespace NexaWorksP6.Entities
         {
             public int Id { get; set; }
             public string Name { get; set; } = null!;
-            public ICollection<ProductVersionOs> Compatibilities { get; set; } = new List<ProductVersionOs>();
-            public ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+            public int ProductId { get; set; }
+            public  Product Product { get; set; } = null!;
+            public ICollection<ProductVersionOs> ProductVersionOs { get; set; } = new List<ProductVersionOs>();
+
         }
 
 }

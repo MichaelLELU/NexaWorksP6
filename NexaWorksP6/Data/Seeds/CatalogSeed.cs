@@ -20,12 +20,22 @@ namespace NexaWorksP6.Data.Seeds
             );
 
             b.Entity<VersionEntity>().HasData(
-                new VersionEntity { Id = 1, Name = "1.0" },
-                new VersionEntity { Id = 2, Name = "1.1" },
-                new VersionEntity { Id = 3, Name = "1.2" },
-                new VersionEntity { Id = 4, Name = "1.3" },
-                new VersionEntity { Id = 5, Name = "2.0" },
-                new VersionEntity { Id = 6, Name = "2.1" }
+                // P1
+                new VersionEntity { Id = 1, ProductId = 1, Name = "1.0" },
+                new VersionEntity { Id = 2, ProductId = 1, Name = "1.1" },
+                new VersionEntity { Id = 3, ProductId = 1, Name = "1.2" },
+                new VersionEntity { Id = 4, ProductId = 1, Name = "1.3" },
+                // P2
+                new VersionEntity { Id = 5, ProductId = 2, Name = "1.0" },
+                new VersionEntity { Id = 6, ProductId = 2, Name = "2.0" },
+                new VersionEntity { Id = 7, ProductId = 2, Name = "2.1" },
+                // P3
+                new VersionEntity { Id = 8, ProductId = 3, Name = "1.0" },
+                new VersionEntity { Id = 9, ProductId = 3, Name = "1.1" },
+                new VersionEntity { Id = 10, ProductId = 3, Name = "2.0" },
+                // P4
+                new VersionEntity { Id = 11, ProductId = 4, Name = "1.0" },
+                new VersionEntity { Id = 12, ProductId = 4, Name = "2.1" }
             );
 
             b.Entity<OperatingSystemEntity>().HasData(

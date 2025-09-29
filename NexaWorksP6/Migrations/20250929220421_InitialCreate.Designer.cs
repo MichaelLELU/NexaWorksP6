@@ -12,8 +12,8 @@ using NexaWorksP6.Data;
 namespace NexaWorksP6.Migrations
 {
     [DbContext(typeof(NexaWorksContext))]
-    [Migration("20250903090822_InitWithSeeds")]
-    partial class InitWithSeeds
+    [Migration("20250929220421_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -130,6 +130,9 @@ namespace NexaWorksP6.Migrations
 
                     b.HasIndex("VersionId");
 
+                    b.HasIndex("ProductId", "VersionId", "OperatingSystemId")
+                        .IsUnique();
+
                     b.ToTable("ProductVersionOs");
 
                     b.HasData(
@@ -208,139 +211,151 @@ namespace NexaWorksP6.Migrations
                         new
                         {
                             ProductId = 2,
-                            VersionId = 1,
-                            OperatingSystemId = 3
-                        },
-                        new
-                        {
-                            ProductId = 2,
                             VersionId = 5,
                             OperatingSystemId = 3
                         },
                         new
                         {
                             ProductId = 2,
-                            VersionId = 5,
+                            VersionId = 6,
+                            OperatingSystemId = 3
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            VersionId = 6,
                             OperatingSystemId = 4
                         },
                         new
                         {
                             ProductId = 2,
-                            VersionId = 5,
+                            VersionId = 6,
                             OperatingSystemId = 5
                         },
                         new
                         {
                             ProductId = 2,
-                            VersionId = 6,
+                            VersionId = 7,
                             OperatingSystemId = 3
                         },
                         new
                         {
                             ProductId = 2,
-                            VersionId = 6,
+                            VersionId = 7,
                             OperatingSystemId = 4
                         },
                         new
                         {
                             ProductId = 2,
-                            VersionId = 6,
+                            VersionId = 7,
                             OperatingSystemId = 5
                         },
                         new
                         {
                             ProductId = 3,
-                            VersionId = 1,
+                            VersionId = 8,
                             OperatingSystemId = 2
                         },
                         new
                         {
                             ProductId = 3,
-                            VersionId = 1,
+                            VersionId = 8,
                             OperatingSystemId = 3
                         },
                         new
                         {
                             ProductId = 3,
-                            VersionId = 2,
+                            VersionId = 9,
                             OperatingSystemId = 2
                         },
                         new
                         {
                             ProductId = 3,
-                            VersionId = 2,
+                            VersionId = 9,
                             OperatingSystemId = 3
                         },
                         new
                         {
                             ProductId = 3,
-                            VersionId = 2,
+                            VersionId = 9,
                             OperatingSystemId = 4
                         },
                         new
                         {
                             ProductId = 3,
-                            VersionId = 2,
+                            VersionId = 9,
                             OperatingSystemId = 5
                         },
                         new
                         {
                             ProductId = 3,
-                            VersionId = 5,
+                            VersionId = 10,
+                            OperatingSystemId = 2
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            VersionId = 10,
+                            OperatingSystemId = 5
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            VersionId = 10,
                             OperatingSystemId = 3
                         },
                         new
                         {
                             ProductId = 3,
-                            VersionId = 5,
+                            VersionId = 10,
                             OperatingSystemId = 1
                         },
                         new
                         {
                             ProductId = 4,
-                            VersionId = 1,
+                            VersionId = 11,
                             OperatingSystemId = 1
                         },
                         new
                         {
                             ProductId = 4,
-                            VersionId = 1,
+                            VersionId = 11,
                             OperatingSystemId = 3
                         },
                         new
                         {
                             ProductId = 4,
-                            VersionId = 1,
+                            VersionId = 11,
                             OperatingSystemId = 4
                         },
                         new
                         {
                             ProductId = 4,
-                            VersionId = 1,
+                            VersionId = 11,
                             OperatingSystemId = 5
                         },
                         new
                         {
                             ProductId = 4,
-                            VersionId = 6,
+                            VersionId = 12,
                             OperatingSystemId = 1
                         },
                         new
                         {
                             ProductId = 4,
-                            VersionId = 6,
+                            VersionId = 12,
                             OperatingSystemId = 3
                         },
                         new
                         {
                             ProductId = 4,
-                            VersionId = 6,
+                            VersionId = 12,
                             OperatingSystemId = 4
                         },
                         new
                         {
                             ProductId = 4,
-                            VersionId = 6,
+                            VersionId = 12,
                             OperatingSystemId = 5
                         });
                 });
@@ -409,11 +424,7 @@ namespace NexaWorksP6.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OperatingSystemId");
-
-                    b.HasIndex("StatusId");
-
-                    b.HasIndex("VersionId");
+                    b.HasIndex("StatusId", "CreatedAt");
 
                     b.HasIndex("ProductId", "VersionId", "OperatingSystemId");
 
@@ -494,7 +505,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Crash à l’export PDF (MacOS)",
                             ProductId = 2,
                             StatusId = 1,
-                            VersionId = 1
+                            VersionId = 5
                         },
                         new
                         {
@@ -506,7 +517,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Filtrage des doublons",
                             ResolvedAt = new DateTime(2023, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 5
+                            VersionId = 6
                         },
                         new
                         {
@@ -516,7 +527,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Problème d’accès FaceID (iOS)",
                             ProductId = 2,
                             StatusId = 1,
-                            VersionId = 5
+                            VersionId = 6
                         },
                         new
                         {
@@ -528,7 +539,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Conversion timezone locale",
                             ResolvedAt = new DateTime(2023, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 6
+                            VersionId = 7
                         },
                         new
                         {
@@ -538,7 +549,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Lenteur sur grands portefeuilles (Android)",
                             ProductId = 2,
                             StatusId = 1,
-                            VersionId = 6
+                            VersionId = 7
                         },
                         new
                         {
@@ -550,7 +561,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Mise à jour librairie iOS",
                             ResolvedAt = new DateTime(2023, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 6
+                            VersionId = 7
                         },
                         new
                         {
@@ -560,7 +571,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Synchronisation CalDAV échoue (Linux)",
                             ProductId = 3,
                             StatusId = 1,
-                            VersionId = 1
+                            VersionId = 8
                         },
                         new
                         {
@@ -572,7 +583,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Correctif CSS + mise à jour moteur UI",
                             ResolvedAt = new DateTime(2023, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 1
+                            VersionId = 8
                         },
                         new
                         {
@@ -582,7 +593,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Widget Android ne se met pas à jour",
                             ProductId = 3,
                             StatusId = 1,
-                            VersionId = 2
+                            VersionId = 9
                         },
                         new
                         {
@@ -594,7 +605,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Ajustement du système de notifications locales",
                             ResolvedAt = new DateTime(2024, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 2
+                            VersionId = 9
                         },
                         new
                         {
@@ -604,7 +615,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Erreur à l’export Excel (Windows)",
                             ProductId = 3,
                             StatusId = 1,
-                            VersionId = 5
+                            VersionId = 10
                         },
                         new
                         {
@@ -616,7 +627,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Correction binding données",
                             ResolvedAt = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 5
+                            VersionId = 10
                         },
                         new
                         {
@@ -626,7 +637,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Impossible d’ajouter un nouvel événement (Windows)",
                             ProductId = 4,
                             StatusId = 1,
-                            VersionId = 1
+                            VersionId = 11
                         },
                         new
                         {
@@ -638,7 +649,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Adaptation layout responsive",
                             ResolvedAt = new DateTime(2024, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 1
+                            VersionId = 11
                         },
                         new
                         {
@@ -648,7 +659,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Crash en ajoutant un rappel (Android)",
                             ProductId = 4,
                             StatusId = 1,
-                            VersionId = 1
+                            VersionId = 11
                         },
                         new
                         {
@@ -660,7 +671,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Réglage des permissions push",
                             ResolvedAt = new DateTime(2024, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 1
+                            VersionId = 11
                         },
                         new
                         {
@@ -670,7 +681,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Erreur sauvegarde locale (Windows)",
                             ProductId = 4,
                             StatusId = 1,
-                            VersionId = 6
+                            VersionId = 12
                         },
                         new
                         {
@@ -682,7 +693,7 @@ namespace NexaWorksP6.Migrations
                             Resolution = "Mise à jour moteur PDF",
                             ResolvedAt = new DateTime(2024, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StatusId = 2,
-                            VersionId = 6
+                            VersionId = 12
                         },
                         new
                         {
@@ -692,7 +703,7 @@ namespace NexaWorksP6.Migrations
                             Problem = "Synchronisation iCloud intermittente (iOS)",
                             ProductId = 4,
                             StatusId = 1,
-                            VersionId = 6
+                            VersionId = 12
                         });
                 });
 
@@ -706,9 +717,15 @@ namespace NexaWorksP6.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId", "Name")
+                        .IsUnique();
 
                     b.ToTable("Versions");
 
@@ -716,53 +733,95 @@ namespace NexaWorksP6.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "1.0"
+                            Name = "1.0",
+                            ProductId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Name = "1.1"
+                            Name = "1.1",
+                            ProductId = 1
                         },
                         new
                         {
                             Id = 3,
-                            Name = "1.2"
+                            Name = "1.2",
+                            ProductId = 1
                         },
                         new
                         {
                             Id = 4,
-                            Name = "1.3"
+                            Name = "1.3",
+                            ProductId = 1
                         },
                         new
                         {
                             Id = 5,
-                            Name = "2.0"
+                            Name = "1.0",
+                            ProductId = 2
                         },
                         new
                         {
                             Id = 6,
-                            Name = "2.1"
+                            Name = "2.0",
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "2.1",
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "1.0",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "1.1",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "2.0",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "1.0",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "2.1",
+                            ProductId = 4
                         });
                 });
 
             modelBuilder.Entity("NexaWorksP6.Entities.ProductVersionOs", b =>
                 {
                     b.HasOne("NexaWorksP6.Entities.OperatingSystemEntity", "OperatingSystem")
-                        .WithMany("Compatibilities")
+                        .WithMany("ProductVersionOs")
                         .HasForeignKey("OperatingSystemId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("NexaWorksP6.Entities.Product", "Product")
-                        .WithMany("Compatibilities")
+                        .WithMany("ProductVersionOs")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("NexaWorksP6.Entities.VersionEntity", "Version")
-                        .WithMany("Compatibilities")
+                        .WithMany("ProductVersionOs")
                         .HasForeignKey("VersionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("OperatingSystem");
@@ -774,27 +833,9 @@ namespace NexaWorksP6.Migrations
 
             modelBuilder.Entity("NexaWorksP6.Entities.Ticket", b =>
                 {
-                    b.HasOne("NexaWorksP6.Entities.OperatingSystemEntity", "OperatingSystem")
-                        .WithMany("Tickets")
-                        .HasForeignKey("OperatingSystemId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("NexaWorksP6.Entities.Product", "Product")
-                        .WithMany("Tickets")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("NexaWorksP6.Entities.Status", "Status")
                         .WithMany("Tickets")
                         .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("NexaWorksP6.Entities.VersionEntity", "Version")
-                        .WithMany("Tickets")
-                        .HasForeignKey("VersionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -804,29 +845,32 @@ namespace NexaWorksP6.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("OperatingSystem");
-
-                    b.Navigation("Product");
-
                     b.Navigation("Pvo");
 
                     b.Navigation("Status");
+                });
 
-                    b.Navigation("Version");
+            modelBuilder.Entity("NexaWorksP6.Entities.VersionEntity", b =>
+                {
+                    b.HasOne("NexaWorksP6.Entities.Product", "Product")
+                        .WithMany("Versions")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("NexaWorksP6.Entities.OperatingSystemEntity", b =>
                 {
-                    b.Navigation("Compatibilities");
-
-                    b.Navigation("Tickets");
+                    b.Navigation("ProductVersionOs");
                 });
 
             modelBuilder.Entity("NexaWorksP6.Entities.Product", b =>
                 {
-                    b.Navigation("Compatibilities");
+                    b.Navigation("ProductVersionOs");
 
-                    b.Navigation("Tickets");
+                    b.Navigation("Versions");
                 });
 
             modelBuilder.Entity("NexaWorksP6.Entities.ProductVersionOs", b =>
@@ -841,9 +885,7 @@ namespace NexaWorksP6.Migrations
 
             modelBuilder.Entity("NexaWorksP6.Entities.VersionEntity", b =>
                 {
-                    b.Navigation("Compatibilities");
-
-                    b.Navigation("Tickets");
+                    b.Navigation("ProductVersionOs");
                 });
 #pragma warning restore 612, 618
         }
