@@ -17,8 +17,7 @@ namespace NexaWorksP6.Data
                 .AddEnvironmentVariables()
                 .Build();
 
-            var conn = config.GetConnectionString("NexaWorks")
-                       ?? "Server=localhost\\SQLEXPRESS;Database=NexaWorks;Trusted_Connection=True;TrustServerCertificate=True";
+            var conn = config.GetConnectionString("NexaWorks");
 
             var builder = new DbContextOptionsBuilder<NexaWorksContext>()
                 .UseSqlServer(conn);
